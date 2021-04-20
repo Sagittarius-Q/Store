@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<body>
+<main>
+    <h1>Login</h1>
+    <hr>
+    <form  th:action="@{/users/login}" th:method="post">
+<!--        <div>-->
+<!--            <p  th:text="${successfulRegistration}"></p>-->
+<!--            <p style="color: green" th:text="${youCanLogin}"></p>-->
+<!--        </div>-->
+        <div class="form-group">
+            <input type="text" class="form-control" id="username" placeholder="Username..." name="username" minlength="4" required>
+        </div>
+        <div class="form-group1">
+            <input type="password" class="form-control" id="password" placeholder="Password..." name="password" minlength="6" required>
+        </div>
+        <hr class="hr-2 bg-dark">
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-dark">Login</button>
+        </div>
+    </form>
+
+</main>
+</body>
+</html>

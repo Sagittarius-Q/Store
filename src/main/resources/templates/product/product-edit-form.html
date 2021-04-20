@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit question</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+<div id="home">
+    <a class="home" th:href="@{/home}"> <i class="fas fa-home"></i></a>
+</div>
+<div>
+    <form class="login-box" action="#" th:action="@{/product/update}" th:object="${product}" method="post">
+        <h1> Edit Product </h1>
+        <div>
+            <input th:field="*{id}" type="hidden">
+        </div>
+        <div class="textbox">
+            <label>
+                <input id="name" th:field="*{name}" type="text" name="hint" th:errorclass="error" placeholder="Name" minlength="1" maxlength="15">
+            </label>
+        </div>
+        <div class="textbox">
+            <label>
+                <input id="hint"  th:field="*{description}" type="text" name="Question" th:errorclass="error" placeholder="Description" minlength="4" maxlength="30">
+            </label>
+        </div>
+        <div class="textbox">
+            <label>
+                <input id="answer" th:field="*{price}" type="number" name="answer" th:errorclass="error" placeholder="Price" minlength="3" maxlength="15" >
+            </label>
+        </div>
+        <div class="textbox">
+            <label>
+                <input id="answe" th:field="*{amount}" type="number" name="Quantity" th:errorclass="error" placeholder="Quantity" minlength="3" maxlength="15" >
+            </label>
+        </div>
+        <label>
+            <input class="btn" type="submit" name="add" value="Save">
+        </label>
+    </form>
+</div>
+
+</body>
+</html>

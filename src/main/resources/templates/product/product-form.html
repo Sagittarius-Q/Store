@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product form</title>
+</head>
+<body>
+<main>
+    <h1>Add Product</h1>
+    <form id="add-product-form" th:action="@{/product/add}" th:method="post" th:object="${product}">
+        <div>
+            <label for="add-product-name" >Name</label>
+            <input type="text"  id="add-product-name" name="name" required>
+        </div>
+        <div>
+            <label for="add-product-description" >Description</label>
+            <textarea id="add-product-description"  rows="5" name="description" required></textarea>
+        </div>
+        <div>
+            <label for="add-product-price" >Price</label>
+            <input type="number" step="any"  id="add-product-price" name="price" required>
+        </div>
+        <div>
+            <label for="product-categories">Categories</label>
+            <select multiple th:field="*{categoriesName}" id="product-categories">
+                <option value="" disabled>--- Select Categories ---</option>
+                <!--/*@thymesVar id="categories" type="com.example.store.domain.model.view.CategoryViewModel"*/-->
+                <option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+            </select>
+
+            <label for="add-product-quantityAvailable">Quantity</label>
+            <input type="number" step="any" id="add-product-quantityAvailable" name="amount" required>
+
+            <button type="submit">Add Product</button>
+        </div>
+
+    </form>
+</main>
+</body>
+<!--<script>-->
+<!--    fetch('http://127.0.0.1:8080/category/fetch')-->
+<!--        .then((response) => response.json())-->
+<!--        .then((json) => {-->
+<!--            json.forEach((category) => $('#add-product-categories').append(`<option value="${category.id}">${category.name}</option>`));-->
+<!--        })-->
+<!--        .catch((err) => console.log("error"));-->
+<!--</script>-->
+</html>

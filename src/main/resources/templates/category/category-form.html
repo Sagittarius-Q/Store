@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category form</title>
+</head>
+<body>
+<main>
+    <h1>Add Category</h1>
+    <hr>
+    <!--/*@thymesVar id="model" type="com.example.store.domain.model.view.CategoryViewModel"*/-->
+    <form  th:action="@{/category/add}" th:method="post" th:object="${model}">
+        <div>
+            <label for="add-category-name" >Name</label>
+            <input type="text"  id="add-category-name" name="name" required>
+        </div>
+        <div>
+            <button type="submit" >Add Category</button>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>
