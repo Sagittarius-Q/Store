@@ -1,6 +1,7 @@
 package com.example.store.domain.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,14 +15,9 @@ public class Product {
     @GeneratedValue(generator = "product_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    @ManyToMany(targetEntity = Category.class, fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "product_categories",
-            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id")
-    )
-//    @ManyToMany(cascade=CascadeType.ALL)
-    private List<Category> categories;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
     private String description;
     private Double price;
     private int amount;

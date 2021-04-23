@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ProductService {
 
-    void save(ProductServiceModel productServiceModel);
+    void save(ProductServiceModel productServiceModel) throws CategoryNotFoundException;
     void deleteProductById(Long id);
     List<ProductServiceModel> getAllProducts();
     ProductServiceModel getProductById(Long id) throws ProductNotFoundException;
-    void updateProduct(ProductServiceModel productServiceModel) throws ProductNotFoundException;
+    void updateProduct(ProductServiceModel productServiceModel) throws ProductNotFoundException, CategoryNotFoundException;
 }

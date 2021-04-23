@@ -2,48 +2,51 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Error</title>
-  <style type="text/css">
-    body {
-      margin: 0;
-      background:linear-gradient(45deg, #49a09d, #69328f);
-      font-weight: 100;
-    }
-    .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .table {
-      width: 1200px;
-      border-collapse: collapse;
-      overflow: hidden;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-      border-radius: 25px;
-      text-align: center;
-    }
-    .home{
-      font-size: 30px;
-      color: black;
-      position: fixed;
-      cursor: pointer;
-      top: 50px;
-      right: 50px;
-    }
-  </style>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
+    <title>Error</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            background: linear-gradient(45deg, #49a09d, #69328f);
+            font-weight: 100;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .table {
+            width: 1200px;
+            border-collapse: collapse;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        .home {
+            font-size: 30px;
+            color: black;
+            position: fixed;
+            cursor: pointer;
+            top: 50px;
+            right: 50px;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
 <a class="home" th:href="@{/home}"> <i class="fas fa-home"></i></a>
 <div class="container">
-  <div class="table">
-    <h1 style="color: #460505"> Something Went Wrong </h1>
-    <!--/*@thymesVar id="message" type="java.lang.String"*/-->
-    <p  th:text="${message}" style="font-size: 25px; margin-right: 30px; margin-left: 30px; "> </p>
-  </div>
+    <div class="table">
+        <h1 style="color: #460505"> Something Went Wrong </h1>
+        <!--/*@thymesVar id="message" type="java.lang.String"*/-->
+        <p th:text="${message}" style="font-size: 25px; margin-right: 30px; margin-left: 30px; "></p>
+    </div>
 
 </div>
 </body>

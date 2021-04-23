@@ -7,7 +7,7 @@ import java.util.List;
 public class ProductServiceModel {
     private Long id;
     private String name;
-    private List<String> categoriesName;
+    private String categoryName;
     private String description;
     private Double price;
     private int amount;

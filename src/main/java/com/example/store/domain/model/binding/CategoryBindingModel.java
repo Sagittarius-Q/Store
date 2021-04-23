@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 @Data
 public class CategoryBindingModel {
-    @Size(min = 4, max = 10, message
-            = "Category name must be between 4 and 10 characters")
+    @Size(min = 4, max = 25, message
+            = "Category name must be between 2 and 25 characters")
     private String name;
 }

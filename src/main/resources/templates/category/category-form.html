@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Category form</title>
 </head>
+
 <body>
+<div class="d-flex justify-content-around bg-secondary">
+    <div>
+        <a href="/product/list">
+            <h3 class="text-center text-dark">PRODUCTS</h3>
+        </a>
+    </div>
+    <div>
+        <a href="/category/list">
+            <h3 class="text-center text-dark">CATEGORIES</h3>
+        </a>
+    </div>
+</div>
 <main>
-    <h1>Add Category</h1>
+    <h1 class="text-center text-dark">Add Category</h1>
     <hr>
     <!--/*@thymesVar id="model" type="com.example.store.domain.model.view.CategoryViewModel"*/-->
-    <form  th:action="@{/category/add}" th:method="post" th:object="${model}">
-        <div>
-            <label for="add-category-name" >Name</label>
-            <input type="text"  id="add-category-name" name="name" required>
+    <form class="form w-25 mx-auto" th:action="@{/category/add}" th:method="post" th:object="${model}">
+        <div class="form-group">
+            <label class="font-weight-bold" for="add-category-name">Name</label>
+            <input class="form-control text-center" type="text" id="add-category-name" name="name" required
+                   minlength="3" maxlength="25">
         </div>
-        <div>
-            <button type="submit" >Add Category</button>
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-success">Add Category</button>
         </div>
     </form>
 </main>
 
 </body>
+
 </html>

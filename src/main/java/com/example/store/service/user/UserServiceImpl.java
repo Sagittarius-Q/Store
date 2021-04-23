@@ -11,18 +11,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.HashSet;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
 
     @Override
     public void save(UserServiceModel userServiceModel) {
-        User user = this.modelMapper.map(userServiceModel,User.class);
+        User user = this.modelMapper.map(userServiceModel, User.class);
         if (this.userRepository.count() == 0) {
             user.setRoles(new HashSet<>());
             user.getRoles().add(Role.ADMIN);
@@ -36,14 +37,14 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void existsByUsername(String username) {
-        if(this.userRepository.existsByUsername(username))
-            throw  new UserDuplicateException( username + " already exists , try different username" );
+        if (this.userRepository.existsByUsername(username))
+            throw new UserDuplicateException(username + " already exists , try different username");
     }
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         User user = this.userRepository.findByUsername(userName).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        if(user == null){
+        if (user == null) {
             throw new UsernameNotFoundException("user is not found");
         }
         return user;

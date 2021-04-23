@@ -25,27 +25,27 @@ public class UserController {
 
     @PreAuthorize("isAnonymous()")
     @GetMapping("/login")
-    public String getLoginForm(){
+    public String getLoginForm() {
         return "/user/sign-in";
     }
 
     @PreAuthorize("isAnonymous()")
     @GetMapping("/register")
-    public String getRegisterForm(Model model){
+    public String getRegisterForm(Model model) {
         model.addAttribute("user", new UserRegisterBindingModel());
         return "/user/sign-up";
     }
 
     @PreAuthorize("isAnonymous()")
     @PostMapping("/register")
-    public String saveUser(@Valid  @ModelAttribute UserRegisterBindingModel userModel, BindingResult result){
+    public String saveUser(@Valid @ModelAttribute UserRegisterBindingModel userModel, BindingResult result) {
         this.userService.existsByUsername(userModel.getUsername());
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return "redirect:/register";
         }
-        UserServiceModel serviceModel = this.modelMapper.map(userModel,UserServiceModel.class);
+        UserServiceModel serviceModel = this.modelMapper.map(userModel, UserServiceModel.class);
         this.userService.save(serviceModel);
-        return "home";
+        return "redirect:login";
     }
 
 }

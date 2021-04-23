@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler({Throwable.class})
+    @ExceptionHandler({ProductNotFoundException.class})
     public ModelAndView handleExceptions(Throwable e) {
         ModelAndView modelAndView = new ModelAndView("error");
 

@@ -24,7 +24,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     private final PasswordEncoder passwordEncoder;
 
     @Resource
-    private  UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     @Bean
     public DaoAuthenticationProvider authProvider() {
@@ -35,7 +35,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth){
+    protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authProvider());
     }
 
@@ -50,7 +50,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/product/list")
                 .and()
                 .logout()
                 .logoutSuccessUrl("/");
